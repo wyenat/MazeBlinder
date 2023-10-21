@@ -13,7 +13,7 @@ func _process(delta):
 	velocity = Vector2.ZERO
 	var pressed = false
 	if Input.is_action_pressed("up"):
-		$AnimatedSprite2D.play("walk")
+		$AnimatedSprite2D.play("walking")
 		velocity.y = -walking_speed
 		pressed = true
 	if Input.is_action_pressed("down"):
