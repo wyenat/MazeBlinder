@@ -2,7 +2,7 @@ extends Area2D
 
 var velocity = Vector2()
 var mouse_position = null
-var direction = null
+var direction = Vector2()
 var decay = 0
 @export var acceleration = 20
 @export var max_speed = 20
