@@ -31,6 +31,6 @@ func _process(delta):
 		pressed = true
 	if not pressed:
 		$AnimatedSprite2D.play("idle")
-	position  += velocity
+	move_and_collide(velocity)
 		
 	

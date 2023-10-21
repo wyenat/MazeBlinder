@@ -5,8 +5,7 @@ var direction = Vector2()
 var decay = 0
 var can_boost = true
 
-@export var acceleration = 5
-@export var red_boost = 30
+@export var red_boost = 15
 @export var orange_boost = 10
 @export var green_boost = 5
 @export var yellow_boost = 1
@@ -38,7 +37,7 @@ func _process(delta):
 	decay = (max_speed - sqrt(velocity.length_squared()))/max_speed
 	velocity *= decay
 	velocity += (direction * get_acceleration())*decay
-	position += velocity/3
+	move_and_collide(velocity/3)
 
 
 func _on_boost_timer_timeout():
@@ -47,7 +46,6 @@ func _on_boost_timer_timeout():
 
 
 func _on_animated_sprite_2d_animation_finished():
-	print("Finished!")
 	if $AnimatedSprite2D.animation == "orange":
 		$AnimatedSprite2D.play("yellow")
 	if $AnimatedSprite2D.animation == "red":
