@@ -1,7 +1,6 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var walking_speed = 20
-var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

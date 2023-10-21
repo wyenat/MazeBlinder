@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4hqmyi4gi83l"]
+[gd_scene load_steps=4 format=3 uid="uid://b4hqmyi4gi83l"]
 
 [ext_resource type="PackedScene" uid="uid://cyt4l7fffgyv6" path="res://src/glowing_orb.tscn" id="1_5dx3i"]
 [ext_resource type="PackedScene" uid="uid://da1loydaywijc" path="res://src/player.tscn" id="2_ffsc1"]
+[ext_resource type="PackedScene" uid="uid://lojka50dml05" path="res://src/wall.tscn" id="3_wbrfn"]
 
 [node name="World" type="Node2D"]
 
 [node name="GlowingOrb" parent="." instance=ExtResource("1_5dx3i")]
 scale = Vector2(0.5, 0.5)
+disable_mode = 2
+max_speed = 350
 
 [node name="Player" parent="." instance=ExtResource("2_ffsc1")]
 scale = Vector2(3, 3)
+
+[node name="Wall" parent="." instance=ExtResource("3_wbrfn")]
+position = Vector2(846, 242)
+scale = Vector2(5, 5)
+disable_mode = 2

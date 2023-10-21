@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://lojka50dml05"]
+
+[ext_resource type="Script" path="res://src/wall.gd" id="1_ue1ih"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_djdg1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_55ji5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr4rr"]
+
+[node name="Wall" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_djdg1")
+script = ExtResource("1_ue1ih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_55ji5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qr4rr")

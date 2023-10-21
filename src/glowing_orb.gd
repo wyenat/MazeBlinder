@@ -1,6 +1,5 @@
-extends Area2D
+extends CharacterBody2D
 
-var velocity = Vector2()
 var mouse_position = null
 var direction = Vector2()
 var decay = 0
@@ -19,5 +18,4 @@ func _process(delta):
 	decay = (max_speed - sqrt(velocity.length_squared()))/max_speed
 	velocity *= decay
 	velocity += (direction * acceleration)*decay
-	print("For velocity : ", velocity, " decay is ", decay)
 	position += velocity
