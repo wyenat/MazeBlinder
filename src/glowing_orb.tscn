@@ -57,7 +57,7 @@ max_speed = 500
 position = Vector2(120, 125)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_2n13e")
-frame_progress = 0.76691
+frame_progress = 0.687198
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
