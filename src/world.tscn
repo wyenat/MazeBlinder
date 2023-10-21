@@ -8,7 +8,6 @@
 
 [node name="GlowingOrb" parent="." instance=ExtResource("1_5dx3i")]
 disable_mode = 2
-max_speed = 350
 
 [node name="Player" parent="." instance=ExtResource("2_ffsc1")]
 scale = Vector2(3, 3)
