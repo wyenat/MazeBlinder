@@ -22,10 +22,12 @@ func _process(delta):
 		pressed = true
 	if Input.is_action_pressed("left"):
 		$AnimatedSprite2D.play("walking")
+		$AnimatedSprite2D.flip_h = true
 		velocity.x = -walking_speed
 		pressed = true
 	if Input.is_action_pressed("right"):
 		$AnimatedSprite2D.play("walking")
+		$AnimatedSprite2D.flip_h = false
 		velocity.x = walking_speed
 		pressed = true
 	if not pressed:
