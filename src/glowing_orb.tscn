@@ -304,5 +304,9 @@ shape = SubResource("CircleShape2D_ggc4l")
 [node name="BoostTimer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="BounceTimer" type="Timer" parent="."]
+wait_time = 0.33
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
+[connection signal="timeout" from="BounceTimer" to="." method="_on_bounce_timer_timeout"]

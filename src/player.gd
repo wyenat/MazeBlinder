@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var walking_speed = 20
+@export var walking_speed = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,28 +9,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity = Vector2.ZERO
-	var pressed = false
-	if Input.is_action_pressed("up"):
-		$AnimatedSprite2D.play("walking")
-		velocity.y = -walking_speed
-		pressed = true
-	if Input.is_action_pressed("down"):
-		$AnimatedSprite2D.play("walking")
-		velocity.y = walking_speed
-		pressed = true
-	if Input.is_action_pressed("left"):
-		$AnimatedSprite2D.play("walking")
-		$AnimatedSprite2D.flip_h = true
-		velocity.x = -walking_speed
-		pressed = true
-	if Input.is_action_pressed("right"):
-		$AnimatedSprite2D.play("walking")
-		$AnimatedSprite2D.flip_h = false
-		velocity.x = walking_speed
-		pressed = true
-	if not pressed:
+	velocity = Input.get_vector("left", "right", "up", "down").normalized()*walking_speed
+	if velocity.is_zero_approx():
 		$AnimatedSprite2D.play("idle")
-	move_and_collide(velocity)
+	else:
+		$AnimatedSprite2D.play("walking")
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+	move_and_slide()
 		
 	
