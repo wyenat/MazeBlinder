@@ -31,3 +31,8 @@ scale = Vector2(10, 10)
 [node name="OrbBlocker2" parent="." instance=ExtResource("4_h6ixg")]
 position = Vector2(844, 94)
 scale = Vector2(10, 10)
+
+[node name="GlowingOrb2" parent="." instance=ExtResource("1_5dx3i")]
+
+[node name="GlowingOrb3" parent="." instance=ExtResource("1_5dx3i")]
+position = Vector2(87, 541)

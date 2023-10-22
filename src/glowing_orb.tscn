@@ -309,6 +309,10 @@ wait_time = 5.0
 [node name="BounceTimer" type="Timer" parent="."]
 wait_time = 0.33
 
+[node name="UnbounceTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
 [connection signal="timeout" from="BounceTimer" to="." method="_on_bounce_timer_timeout"]
+[connection signal="timeout" from="UnbounceTimer" to="." method="_on_unbounce_timer_timeout"]

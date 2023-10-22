@@ -3,8 +3,11 @@ extends CharacterBody2D
 var mouse_position = null
 var direction = Vector2()
 var decay = 0
+
 var can_boost = true
+
 var is_bouncing = false
+var can_bounce = true
 
 @export var red_boost = 500
 @export var orange_boost = 300
@@ -32,7 +35,9 @@ func decay_speed():
 	velocity *= decay
 
 func bounce():
+	can_bounce = false
 	$BounceTimer.start()
+	$UnbounceTimer.start()
 	is_bouncing = true
 	$AnimatedSprite2D.play("yellow")
 	direction = direction.bounce(get_last_slide_collision().get_normal())
@@ -51,7 +56,7 @@ func _process(delta):
 		$AnimatedSprite2D.play("red")
 	mouse_position = get_global_mouse_position()
 	direction = (mouse_position - position).normalized()
-	if get_slide_collision_count() > 0:
+	if can_bounce and get_slide_collision_count() > 0:
 		bounce()
 		return
 	velocity += (direction * get_acceleration())
@@ -72,3 +77,7 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_bounce_timer_timeout():
 	$AnimatedSprite2D.play("green")
 	is_bouncing = false
+
+
+func _on_unbounce_timer_timeout():
+	can_bounce = true
