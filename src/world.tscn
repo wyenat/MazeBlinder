@@ -1,12 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4hqmyi4gi83l"]
+[gd_scene load_steps=5 format=3 uid="uid://b4hqmyi4gi83l"]
 
 [ext_resource type="PackedScene" uid="uid://cyt4l7fffgyv6" path="res://src/glowing_orb.tscn" id="1_5dx3i"]
 [ext_resource type="PackedScene" uid="uid://da1loydaywijc" path="res://src/player.tscn" id="2_ffsc1"]
+[ext_resource type="PackedScene" uid="uid://lojka50dml05" path="res://src/wall.tscn" id="3_wbrfn"]
+[ext_resource type="PackedScene" uid="uid://dcs5gc4dgxxse" path="res://src/orb_blocker.tscn" id="4_h6ixg"]
 
 [node name="World" type="Node2D"]
 
 [node name="GlowingOrb" parent="." instance=ExtResource("1_5dx3i")]
-scale = Vector2(0.5, 0.5)
+position = Vector2(253, 286)
+disable_mode = 2
+max_speed = 15000
 
 [node name="Player" parent="." instance=ExtResource("2_ffsc1")]
 scale = Vector2(3, 3)
+
+[node name="Wall" parent="." instance=ExtResource("3_wbrfn")]
+position = Vector2(846, 242)
+scale = Vector2(5, 5)
+disable_mode = 2
+
+[node name="Wall2" parent="." instance=ExtResource("3_wbrfn")]
+position = Vector2(851, 413)
+scale = Vector2(5, 5)
+
+[node name="OrbBlocker" parent="." instance=ExtResource("4_h6ixg")]
+position = Vector2(851, 559)
+scale = Vector2(10, 10)
+
+[node name="OrbBlocker2" parent="." instance=ExtResource("4_h6ixg")]
+position = Vector2(844, 94)
+scale = Vector2(10, 10)
+
+[node name="GlowingOrb2" parent="." instance=ExtResource("1_5dx3i")]
+
+[node name="GlowingOrb3" parent="." instance=ExtResource("1_5dx3i")]
+position = Vector2(87, 541)

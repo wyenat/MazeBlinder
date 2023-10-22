@@ -111,10 +111,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_err5n"]
 size = Vector2(39.5, 40)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(100, 100)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_k8lvq")
-walking_speed = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r0ynt")

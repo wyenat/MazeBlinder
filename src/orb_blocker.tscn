@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcs5gc4dgxxse"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_055gh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsiev"]
+size = Vector2(2, 20)
+
+[node name="OrbBlocker" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.380392, 0.886275, 0.396078, 1)
+self_modulate = Color(0.317647, 0.670588, 0.890196, 1)
+position = Vector2(-2.98023e-08, 0)
+scale = Vector2(2, 20)
+texture = SubResource("CanvasTexture_055gh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xsiev")
