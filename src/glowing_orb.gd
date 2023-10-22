@@ -31,10 +31,18 @@ func decay_speed():
 	decay = (max_speed - sqrt(velocity.length_squared()))/max_speed
 	velocity *= decay
 
+func bounce():
+	$BounceTimer.start()
+	is_bouncing = true
+	$AnimatedSprite2D.play("yellow")
+	direction = direction.bounce(get_last_slide_collision().get_normal())
+	velocity = direction * velocity.length()
+	move_and_slide()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	decay_speed()
 	if is_bouncing:
-		decay_speed()
 		move_and_slide()
 		return
 	if can_boost and Input.is_action_pressed("boost"):
@@ -44,14 +52,8 @@ func _process(delta):
 	mouse_position = get_global_mouse_position()
 	direction = (mouse_position - position).normalized()
 	if get_slide_collision_count() > 0:
-		$BounceTimer.start()
-		is_bouncing = true
-		$AnimatedSprite2D.play("yellow")
-		direction = direction.bounce(get_last_slide_collision().get_normal())
-		velocity = direction * velocity.length()
-		move_and_slide()
+		bounce()
 		return
-	decay_speed()
 	velocity += (direction * get_acceleration())
 	move_and_slide()
 	

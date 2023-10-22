@@ -287,6 +287,8 @@ animations = [{
 
 [node name="GlowingOrb" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_1yvr3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
